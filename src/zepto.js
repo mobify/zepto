@@ -3,7 +3,7 @@
 //     Zepto.js may be freely distributed under the MIT license.
 
 var Zepto = (function() {
-  var undefined, key, $, classList, emptyArray = [], slice = emptyArray.slice,
+  var undefined, key, $, classList, emptyArray = [], slice = emptyArray.slice, filter = emptyArray.filter,
     document = window.document,
     elementDisplay = {}, classCache = {},
     getComputedStyle = document.defaultView.getComputedStyle,
@@ -286,7 +286,7 @@ var Zepto = (function() {
     },
     filter: function(selector){
       if (isFunction(selector)) return this.not(this.not(selector))
-      return $([].filter.call(this, function(element){
+      return $(filter.call(this, function(element){
         return zepto.matches(element, selector)
       }))
     },
